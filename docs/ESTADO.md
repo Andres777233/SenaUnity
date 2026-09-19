@@ -1,6 +1,12 @@
 # ESTADO.md — Popayork — Hecho / Falta / Roto
 
-Fecha: 2026-09-19. Fase actual: Fase 7 cerrada — CAMPAÑA COMPLETA (Verify Final PASS + 8 fases re-PASS, build Linux arranca, commit "Fase 7").
+Fecha: 2026-09-19. Fase actual: Parque Caldas EN CURSO (bloqueado: Editor abierto, sin batch).
+
+## Hecho (Parque Caldas, parcial)
+- `docs/ESPECIFICACION_PARQUE_CALDAS.md` creada íntegra + referencia en AGENTS.md (commit "Especificación Parque Caldas").
+- `docs/DIAGNOSTICO_MAPA.md`: modelo de 1 malla inseccionable (939716 verts); recomendación = construir por código y usar el modelo de fondo.
+- Código ESCRITO sin compilar: `ParqueCaldasBuilder` (`Popayork/Construir Parque Caldas`), `VerifyParque` (`Popayork/Verify Parque`), SO `ParqueCaldasConfig`/`ParqueVegetacion`, `Documentado` en `ValorFuente`.
+- Decisión tomada y registrada: estatua en el origen con losa nivelada a 72.0 (suelo real con 13 m de desnivel); torre SW en (-36,-36).
 
 ## Hecho (Fase 7)
 - Audio 100% procedural marcado PLACEHOLDER: música menú/misión, pasos, clic, boom, viento (`AudioManager` persistente por escena).

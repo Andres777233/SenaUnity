@@ -5,7 +5,8 @@ namespace Popayork.Missions
     public enum ValorFuente
     {
         Medido = 0,
-        Estimado = 1
+        Estimado = 1,
+        Documentado = 2
     }
 
     [System.Serializable]
