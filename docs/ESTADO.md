@@ -1,25 +1,23 @@
 # ESTADO.md — Popayork — Hecho / Falta / Roto
 
-Fecha: 2026-09-19. Fase actual: Fase 4B cerrada (compila, Verify 4B 4/4 PASS, F1/F2/F3/4A re-PASS, commit "Fase 4B").
+Fecha: 2026-09-19. Fase actual: Fase 5A cerrada (compila, Verify 5A 4/4 PASS, F1/F2/F3/4A/4B re-PASS, commit "Fase 5A").
 
-## Hecho (Fase 4B)
-- Misión 1 "Empieza el caos": intro con título + tutorial, objetivo visible y barra de progreso; victoria (3 oleadas o 240s) / derrota (policía en la Torre) con pantallas y reintento <3s.
-- 3 oleadas progresivas (4/6/8 policías) hacia la Torre + 4 aliados defensores; checkpoints por oleada con subtítulo; al ganar se desbloquea Misión 2 en el guardado.
-- Caos: 4 fuegos + 4 humos en loop, explosiones cada 12s con boom procedural, sacudida y daño en área, 8 escombros.
-- Proyectiles del jugador ya dañan policías (cápsula trigger en agentes; aliados sin fuego amigo) con hitmarker.
-- `Popayork/Verify Fase 4B`: 4/4 PASS (arranque, derrota sin defensa, victoria+guardado, caos). Cero errores/warnings CS propios.
+## Hecho (Fase 5A)
+- Decisión narrativa misión 2 completada en AGENTS.md §1 (universitarios rivales por acusación de "vender el paro"); `AgentData.hostile` nuevo (policías y Uni rival = true).
+- Caballo con modelo real: `Horse.blend` inservible en Blender 5.0/Unity (exportador roto) → malla extraída a `HorseMesh.json` (952 verts, 3 materiales) y reconstruida por código (medido 9.27m → escala ×0.237 para 2.2m). Montar/desmontar con E, trote 6 / galope 11, espera donde te bajas, cámara FP en la silla.
+- Mision2: ruta parque→Morro de 447m (Morro medido: cima (520, 78, 355)), camino + barandas + 12 baldosas de colisión + campamento + pirámide del Morro; 3 volúmenes NavMesh; Mision2 registrada en Build Settings.
+- 4 checkpoints en orden (2 a caballo, 1 emboscada policía+Uni rival, llegada) con brújula al Morro y progreso; llegada guarda `Mision2_Ruta`.
+- `Popayork/Verify Fase 5A`: 4/4 PASS. Cero errores/warnings CS propios.
 
-## Rendimiento (Fase 4A, vigente)
-- Presupuesto estático medido en batch: 125 renderers, 1512418 tris (99% ciudad estática, 1 draw call), 89 colliders, textura ciudad 2048px.
-- FPS promedio con render: NO medible en batch (pendiente usuario en Editor con `Popayork/Medir FPS Mision1`).
+## Rendimiento (vigente)
+- Mision1: 125 renderers, 1512418 tris, 89 colliders (batch). FPS con render pendiente (usuario en Editor con `Popayork/Medir FPS Mision1`).
 
 ## Falta
-- Decisión narrativa misión 2 (`porque ______` en AGENTS.md §1).
-- Fases 5A-7 según `docs/PLAN.md`.
+- Fases 5B-7 según `docs/PLAN.md`.
 
 ## Roto / Limitaciones conocidas
 - Batch en Ubuntu 26.04 exige compat libxml2 (ver AGENTS.md > Decisiones); sin eso el Editor ni arranca.
-- `model.zip`/`model.jpeg` originales intactos; se agregaron `source/model.fbx` + `source/model.jpg` (2k). `.blend` x3 no nativos sin Blender.
+- `model.zip`/`model.jpeg`/`Horse.blend` originales intactos. `.blend` restantes no nativos (exportador Blender 5.0 roto para FBX/OBJ: solo gltf/fbx mínimo sirven).
 - Lock stale `Temp/UnityLockfile` tras crash: se borra si no hay Editor abierto (regenerable, no se commitea).
 - Warnings de importación de los .blend de terceros (ajenos al código propio, se mantienen).
 
@@ -32,10 +30,11 @@ Fecha: 2026-09-19. Fase actual: Fase 4B cerrada (compila, Verify 4B 4/4 PASS, F1
 - `PrefabUtility.SaveAsPrefabAsset` (API vigente para guardar prefabs desde Editor).
 - AI Navigation 2.0.14: `NavMeshCollectGeometry`, `BuildNavMesh()` void, `MedQualityObstacleAvoidance`, `FindObjectsByType` sin sort mode.
 - NavMesh bake en 2 pasadas (escena recién abierta); `NavMesh.CalculateTriangulation` funciona en edit-mode para diagnosticar bakes vacíos.
+- Malla del camino con winding invertido no bakea (solo reversos); verificar normales hacia arriba.
 
 ## Instrucciones de prueba
-1. Mision1 en Play: intro "EMPIEZA EL CAOS", botón ¡A defender la Torre!, objetivo y barra visibles.
-2. Frenar 3 oleadas con aliados; explosiones sacuden la cámara; checkpoints por oleada.
-3. Victoria desbloquea Misión 2 (ver en Campaña); derrota si un tomba toca la Torre.
-4. Reintentar recarga en <3s; P pausa como siempre.
-5. `Popayork/Verify Fase 4B` (+ F1/F2/F3/4A): todo PASS.
+1. Mision2 en Play: intro, E para montar el caballo junto al campamento, WASD + Shift (galope) por el camino.
+2. Seguir la flecha naranja (distancia al Morro); E desmonta y el caballo espera para remontar.
+3. Emboscada en el cruce: desmontar y pelear con tombos y Uni rivales (anillo rojo).
+4. Llegar a la cima: mensaje de llegada; P pausa como siempre.
+5. `Popayork/Verify Fase 5A` (+ resto): todo PASS.

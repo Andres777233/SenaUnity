@@ -25,6 +25,7 @@ namespace Popayork.Enemies
         [Header("Identidad")]
         public string displayName = "Agente";
         public Faction faction = Faction.Police;
+        public bool hostile = true;
         public string modelFbxPath = "Assets/Models3D/Policias/source/Posed People by JJ - Police vol1 with HQ.fbx";
         public string modelRootName = "Police idle1_gameasset";
 

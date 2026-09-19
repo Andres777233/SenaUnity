@@ -8,7 +8,7 @@ Este archivo es la fuente de verdad en cada sesión. Contiene íntegras y sin re
 - Ambientación: Popayán, Cauca (Colombia), "la ciudad blanca": edificios coloniales blancos con tejados de teja. Una marcha estudiantil que se descontrola: caos, explosiones, fuego y humo, empezando por el Parque Caldas.
 - Tono: acción caótica con sátira y humor colombiano. Frases de NPC y subtítulos en español colombiano.
 - Jugador: aprendiz del SENA con uniforme reconocible, pero con logo e insignias INVENTADOS (sin logos oficiales). Las fuerzas antidisturbios y "SMART" usan insignias ficticias.
-- [DECISIÓN NARRATIVA: en la misión 1 SENA y universitarios son aliados; en la misión 2 los universitarios son rivales porque ______ ]
+- [DECISIÓN NARRATIVA: en la misión 1 SENA y universitarios son aliados; en la misión 2 los universitarios son rivales porque un sector los acusa de haber "vendido el paro" a cambio de un convenio y ahora ven a los aprendices del SENA como esquiroles ]
 
 # 2. Entorno (obligatorio respetar)
 - Ubuntu Linux. Nada de rutas de Windows.
@@ -77,6 +77,8 @@ Al terminar cada fase: (a) qué hiciste, (b) cómo lo pruebo, (c) qué falta o e
 - 2026-09-19 (Fase 4A): el bake NavMesh sobre colisionadores recién creados sale vacío; se bacea en 2ª pasada con la escena recién abierta (verificado empíricamente).
 - 2026-09-19 (Fase 4A): `AudioListener` agregado a la cámara del jugador (faltaba; avisaba en Play). Parche aplicado a prefab-vía-escenas Mision1 y TestArena.
 - 2026-09-19 (Fase 4B): proyectiles del jugador dañan policías (`AgentHealth` + cápsula trigger en agentes; aliados excluidos de fuego amigo). Victoria de Mision1 guarda directo con `SaveSystem` (funciona en edit-mode) y refresca `GameManager` en play.
+- 2026-09-19 (Fase 5A): decisión narrativa misión 2 completada en §1 (universitarios rivales por acusación de "vender el paro"); nuevo `AgentData.hostile` (policías y Uni rivales = true) en vez de filtrar por facción.
+- 2026-09-19 (Fase 5A): `Horse.blend` inservible (exportador FBX de Blender 5.0 roto + script Unity incompatible); malla real extraída con Blender a `HorseMesh.json` (952 verts, 3 materiales) y reconstruida por código en el builder.
 
 # Anexos operativos verificados
 - Proyecto existe en /home/andres/Escritorio/SENAUNITY. Verificado con `ls`: existe `ProjectSettings/` (contenía solo `ProjectVersion.txt` el 2026-09-19) y `Assets/` con `MapaPopayan/` + `Models3D/`.

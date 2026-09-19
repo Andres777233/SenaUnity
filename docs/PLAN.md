@@ -37,10 +37,11 @@ Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets re
 - [x] Caos (fuegos/humos/explosiones con sacudida, escombros) y Misión 2 desbloqueada al ganar
 - [x] Verify Fase4B + compilación + ESTADO + commit "Fase4B"
 
-## Fase 5A — Misión 2 primera mitad
-- [ ] Caballos (ver limitación: `Horse.blend` requiere Blender o exportar a FBX)
-- [ ] Ruta al Morro de Tulcán
-- [ ] Verify Fase5A + compilación + ESTADO + commit "Fase5A"
+## Fase 5A — Misión 2 primera mitad [CERRADA 2026-09-19: compila, Verify 5A 4/4 PASS + re-PASS resto, commit "Fase 5A"]
+- [x] Caballo (modelo real vía HorseMesh.json) montar/desmontar/espera + trote/galope
+- [x] Ruta parque→Morro (447m) con checkpoints en orden y pelea de emboscada
+- [x] Uni rivales (hostile) + brújula al Morro; Mision2 en Build Settings
+- [x] Verify Fase5A + compilación + ESTADO + commit "Fase5A"
 
 ## Fase 5B — Misión 2 segunda mitad
 - [ ] Defensa del Morro y retirada

@@ -54,6 +54,11 @@ namespace Popayork.Enemies
             get { return data != null ? data.faction : Faction.Police; }
         }
 
+        public bool IsHostile
+        {
+            get { return data != null && data.hostile; }
+        }
+
         public int Slot
         {
             get { return slotIndex; }
@@ -345,7 +350,7 @@ namespace Popayork.Enemies
                 return;
             }
             scanTimer = 0.5f;
-            if (data.faction == Faction.Police)
+            if (IsHostile)
             {
                 if (playerTarget != null && !IsPlayerDead())
                 {
@@ -379,7 +384,7 @@ namespace Popayork.Enemies
             for (int i = 0; i < count; i++)
             {
                 AgentBrain other = homePool.GetActive(i);
-                if (other == null || other == this || other.Faction == Faction.Police || other.Health.IsDead)
+                if (other == null || other == this || other.IsHostile || other.Health.IsDead)
                 {
                     continue;
                 }
@@ -407,7 +412,7 @@ namespace Popayork.Enemies
             for (int i = 0; i < count; i++)
             {
                 AgentBrain other = homePool.GetActive(i);
-                if (other == null || other == this || other.Faction != Faction.Police || other.Health.IsDead)
+                if (other == null || other == this || !other.IsHostile || other.Health.IsDead)
                 {
                     continue;
                 }

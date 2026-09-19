@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Popayork.Enemies.AgentData
   displayName: Caminante
   faction: 0
+  hostile: 1
   modelFbxPath: Assets/Models3D/Policias/source/Posed People by JJ - Police vol1 with HQ.fbx
   modelRootName: Police walk1_gameasset
   maxHealth: 80
