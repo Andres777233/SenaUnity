@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aed1c753c3d53f769c8557315b83610, type: 3}
+  m_Name: Mission2Config
+  m_EditorClassIdentifier: Assembly-CSharp::Popayork.Missions.Mission2Config
+  routePoints:
+  - {x: 80.000015, y: 78.25709, z: 274.80005}
+  - {x: 160.8446, y: 78.25709, z: 330.15485}
+  - {x: 261.36658, y: 78.25709, z: 277.28394}
+  - {x: 338.63342, y: 78.25709, z: 352.31616}
+  - {x: 460.9678, y: 78.25709, z: 344.06693}
+  - {x: 520, y: 78.25709, z: 354.80005}
+  checkpoints:
+  - nombre: "Port\xF3n del sur"
+    kind: 0
+    position: {x: 261.36658, y: 78.25709, z: 277.28394}
+    radius: 10
+    fightWave: {fileID: 0}
+  - nombre: Emboscada en el cruce
+    kind: 1
+    position: {x: 338.63342, y: 78.25709, z: 352.31616}
+    radius: 14
+    fightWave: {fileID: 11400000, guid: 3ab5427f674222794bf6139b654b3ee7, type: 2}
+  - nombre: Base del Morro
+    kind: 0
+    position: {x: 460.9678, y: 78.25709, z: 344.06693}
+    radius: 10
+    fightWave: {fileID: 0}
+  - nombre: Cima del Morro
+    kind: 2
+    position: {x: 520, y: 77.957085, z: 354.80005}
+    radius: 8
+    fightWave: {fileID: 0}
+  corridorHalfWidth: 12
+  morroTop: {x: 520, y: 77.957085, z: 354.80005}
+  defenseWaves:
+  - {fileID: 11400000, guid: c625ba2bce60b9057a1745987c46274e, type: 2}
+  - {fileID: 11400000, guid: 76f05dc0625775631867f37a57b4543a, type: 2}
+  - {fileID: 11400000, guid: 4d5ca5711a16052d9bfe160a98dcbc9b, type: 2}
+  retreatThreshold: 8
+  exitPoint: {x: 542.62744, y: 77.957085, z: 377.42746}
+  exitRadius: 5
+  maxDeaths: 3
+  defenseGrace: 5

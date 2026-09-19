@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a748a06ea640f64daa2c1a4fabf5905, type: 3}
+  m_Name: NpcPhrases
+  m_EditorClassIdentifier: Assembly-CSharp::Popayork.Missions.NpcPhrases
+  policeSpawn:
+  - "\xA1Quieto ah\xED, parce!"
+  - "\xA1Se acab\xF3 la recocha!"
+  senaSpawn:
+  - "\xA1Aguante, parceros!"
+  - "\xA1Por el SENA, oe!"
+  uniSpawn:
+  - "\xA1La nacho presente!"
+  - "\xA1Resistencia, compas!"
+  policeAttack:
+  - "\xA1Tome su comparendo!"
+  - "\xA1Pa' la tanqueta!"
+  senaAttack:
+  - "\xA1Tome, pues!"
+  - "\xA1Uy, qu\xE9 voltaje!"
+  uniAttack:
+  - "\xA1Fuera, fuera!"
+  - "\xA1Ni un paso atr\xE1s!"
+  policeDeath:
+  - "\xA1Me dieron, me dieron!"
+  - "\xA1Pidan refuerzos!"
+  senaDeath:
+  - "\xA1Ay, juepucha!"
+  - "\xA1Sigan ustedes, parce!"
+  uniDeath:
+  - "\xA1Me tumbaron, compas!"
+  - "\xA1No me dejen!"
+  policeRetreat:
+  - "\xA1Repliegue, repliegue!"
+  - "\xA1Atr\xE1s, atr\xE1s!"
+  senaRetreat:
+  - "\xA1Corra, parce, corra!"
+  - "\xA1Nos vemos en el SENA!"
+  uniRetreat:
+  - "\xA1Reagruparse, compas!"
+  - "\xA1Al Morro, al Morro!"
+  idle:
+  - "\xBFQu\xE9 hubo, pues?"
+  - Ojo, que esto se calienta.

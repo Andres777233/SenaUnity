@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0f37dd97e5228f195f0d74f4173278, type: 3}
+  m_Name: ParqueConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Popayork.Missions.ParqueConfig
+  medidas:
+  - nombre: ciudad_ancho_m
+    valor: 1709,6
+    fuente: 0
+    detalleFuente: Renderer.bounds del modelo model.fbx
+  - nombre: ciudad_largo_m
+    valor: 1377,7
+    fuente: 0
+    detalleFuente: Renderer.bounds del modelo model.fbx
+  - nombre: ciudad_alto_m
+    valor: 140,9
+    fuente: 0
+    detalleFuente: Renderer.bounds del modelo model.fbx
+  - nombre: ciudad_vertices
+    valor: 939716
+    fuente: 0
+    detalleFuente: sharedMesh.vertexCount del modelo
+  - nombre: ciudad_triangulos
+    valor: 1500000
+    fuente: 0
+    detalleFuente: sharedMesh.triangles del modelo
+  - nombre: plaza_centro
+    valor: (80.0, 77.5, 300.0)
+    fuente: 0
+    detalleFuente: raycast 31x31 sobre el modelo, sector plano mayor
+  - nombre: plaza_lado_m
+    valor: 60,0
+    fuente: 0
+    detalleFuente: celdas planas contiguas x4m
+  - nombre: suelo_altura_m
+    valor: 77,46
+    fuente: 0
+    detalleFuente: raycast vertical sobre el modelo
+  - nombre: textura_modelo
+    valor: model.jpg 2048px (original 16384px/66MB reducido con PIL)
+    fuente: 0
+    detalleFuente: Assets/MapaPopayan/source/model.jpg
+  - nombre: plaza_losa_m
+    valor: 60,0x60,0
+    fuente: 1
+    detalleFuente: "dise\xF1o: cubre el sector medido"
+  - nombre: torre_alto_m
+    valor: 28
+    fuente: 1
+    detalleFuente: "dise\xF1o low poly (referencia real pendiente de consulta web)"
+  - nombre: torre_base_m
+    valor: 6x6
+    fuente: 1
+    detalleFuente: "dise\xF1o low poly"
+  - nombre: arboles_cantidad
+    valor: 24
+    fuente: 0
+    detalleFuente: instancias del prefab Arbol generadas por script
+  - nombre: arbol_alto_m
+    valor: 4.5
+    fuente: 1
+    detalleFuente: "dise\xF1o low poly del prefab"
+  - nombre: bancas_cantidad
+    valor: 10
+    fuente: 0
+    detalleFuente: instancias del prefab Banca generadas por script
+  - nombre: banca_largo_m
+    valor: 1.8
+    fuente: 1
+    detalleFuente: "dise\xF1o low poly del prefab"
+  - nombre: estatua_alto_m
+    valor: 5.2
+    fuente: 1
+    detalleFuente: "dise\xF1o low poly del prefab"
+  - nombre: farolas_cantidad
+    valor: 8
+    fuente: 0
+    detalleFuente: instancias del prefab Farola generadas por script
+  - nombre: farola_alto_m
+    valor: 5.2
+    fuente: 1
+    detalleFuente: "dise\xF1o low poly del prefab"
+  - nombre: fachadas_cantidad
+    valor: 4
+    fuente: 0
+    detalleFuente: "manzanas coloniales generadas por script con colisi\xF3n"
+  - nombre: fachada_alto_m
+    valor: 8
+    fuente: 1
+    detalleFuente: "dise\xF1o: 2 pisos coloniales"
+  - nombre: limite_medio_lado_m
+    valor: 75
+    fuente: 1
+    detalleFuente: "dise\xF1o: muros invisibles antica\xEDda"
+  - nombre: niebla_densidad
+    valor: 0.004
+    fuente: 1
+    detalleFuente: "dise\xF1o: niebla ligera c\xE1lida"
+  - nombre: sol_elevacion_grados
+    valor: 18
+    fuente: 1
+    detalleFuente: "dise\xF1o: atardecer"
+  - nombre: navmesh_bake_ok
+    valor: true
+    fuente: 0
+    detalleFuente: ruta de prueba tras BuildNavMesh por script
+  centroPlaza: {x: 80.000015, y: 77.457085, z: 300.00006}
+  ladoPlaza: 60
+  alturaSuelo: 77.457085
+  posicionTorre: {x: 99.20001, y: 78.457085, z: 323.20007}
+  spawnJugador: {x: 80.000015, y: 77.957085, z: 274.80005}
+  spawnAliados:
+  - {x: 77.000015, y: 77.957085, z: 273.80005}
+  - {x: 83.000015, y: 77.957085, z: 273.80005}
+  spawnOleadas:
+  - {x: 80.000015, y: 77.957085, z: 328.80005}
+  - {x: 51.200016, y: 77.957085, z: 300.00006}
+  - {x: 108.80002, y: 77.957085, z: 300.00006}
+  objetivoTorre: {x: 99.20001, y: 78.457085, z: 323.20007}
