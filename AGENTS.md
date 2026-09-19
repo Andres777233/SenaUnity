@@ -70,6 +70,9 @@ Al terminar cada fase: (a) qué hiciste, (b) cómo lo pruebo, (c) qué falta o e
 - 2026-09-19 (Fase 1): `SaveSystem` usa JSON manual propio (el módulo JSONSerialize no quedaba referenciado por Assembly-CSharp en este proyecto).
 - 2026-09-19 (Fase 2): agregado `com.unity.modules.particlesystem 1.0.0` (módulo built-in; sin él no existe `ParticleSystem`). Armas elegidas de `Guns.fbx`: `MSR` (Fusil MSR) y `BE1` (Subfusil BE1).
 - 2026-09-19 (Fase 2): en edit-mode `Awake` no corre (sin `ExecuteAlways`); los componentes usan init perezoso (`EnsureParts`) para que el Verify pueda probarlos sin Play mode.
+- 2026-09-19 (Fase 3): `com.unity.ai.navigation` NO venía instalado; verificado en registry (`latest 2.0.14`, sin adivinar) y agregado `2.0.14` + `com.unity.modules.ai 1.0.0` (built-in). Modelos: policías `Police idle1/walk1_gameasset`, aliados `Man01` (SENA) y `Woman01` (Uni).
+- 2026-09-19 (Fase 3): API real de AI Navigation 2.0.14 (leída del paquete, no adivinada): `useGeometry` es `NavMeshCollectGeometry`, `BuildNavMesh()` devuelve `void`, `ObstacleAvoidanceType.MedQualityObstacleAvoidance`; `FindObjectsByType` sin `FindObjectsSortMode` (obsoleto).
+- 2026-09-19 (Fase 3): el registro del pool en memoria no se guarda en el `.unity`; `AgentPool.Discover()` re-registra al cargar y los datos de agentes van serializados (`[SerializeField]`).
 
 # Anexos operativos verificados
 - Proyecto existe en /home/andres/Escritorio/SENAUNITY. Verificado con `ls`: existe `ProjectSettings/` (contenía solo `ProjectVersion.txt` el 2026-09-19) y `Assets/` con `MapaPopayan/` + `Models3D/`.

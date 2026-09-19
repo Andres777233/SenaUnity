@@ -17,12 +17,12 @@ Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets re
 - [x] Game feel base (retroceso, sacudida, hit markers, FOV correr)
 - [x] Verify Fase2 + compilación + ESTADO + commit "Fase2"
 
-## Fase 3 — Enemigos y aliados
-- [ ] IA policial (máx. 30 agentes activos, pooling, sin allocs por frame)
-- [ ] Aliados estudiantes
-- [ ] Sistema de oleadas (ScriptableObjects)
-- [ ] Enemigos caen/se retiran, sin gore
-- [ ] Verify Fase3 + compilación + ESTADO + commit "Fase3"
+## Fase 3 — Enemigos y aliados [CERRADA 2026-09-19: compila, Verify F3 6/6 PASS + F1/F2 re-PASS, commit "Fase 3"]
+- [x] IA policial (máx. 30 agentes activos, pooling, sin allocs por frame)
+- [x] Aliados estudiantes
+- [x] Sistema de oleadas (ScriptableObjects)
+- [x] Enemigos caen/se retiran, sin gore
+- [x] Verify Fase3 + compilación + ESTADO + commit "Fase3"
 
 ## Fase 4A — Escenario Parque Caldas desde Assets/MapaPopayan
 - [ ] Escenario construido solo desde `Assets/MapaPopayan` (ver limitaciones en ESTADO: .zip no importable, textura 69M pesada)

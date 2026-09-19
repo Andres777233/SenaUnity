@@ -1,21 +1,22 @@
 # ESTADO.md — Popayork — Hecho / Falta / Roto
 
-Fecha: 2026-09-19. Fase actual: Fase 2 cerrada (compila, Verify F2 6/6 PASS, F1 re-PASS, commit "Fase 2").
+Fecha: 2026-09-19. Fase actual: Fase 3 cerrada (compila, Verify F3 6/6 PASS, F1/F2 re-PASS, commit "Fase 3").
 
-## Hecho (Fase 2)
-- FPS con `CharacterController`: caminar/sprint/salto, mirada con sensibilidad del guardado, FOV 75→85 al correr, colisión con muros (no atraviesa).
-- Vida/daño/muerte + reaparición en 1.5s (<3s) en punto de spawn, con refill de armas.
-- 2 armas por ScriptableObject con modelos reales de `Guns.fbx`: Fusil MSR (9/s, 22 daño, 30+90) y Subfusil BE1 (12/s, 14 daño, 32+96); proyectiles e impactos con pooling, sonido placeholder procedural.
-- Game feel: retroceso + sacudida de cámara, hitmarker (rojo si mata), partículas de impacto, indicador direccional de daño (4 flechas).
-- HUD: vida, munición, mira, arma actual, aviso de reaparición. Escena TestArena (6 dianas, coberturas, muros) + prefab `Player`.
-- `Popayork/Verify Fase 2`: 6/6 PASS, incluye 0 bytes asignados en 500 cuadros de movimiento+disparo. Cero errores/warnings CS propios.
+## Hecho (Fase 3)
+- NavMesh: paquete `com.unity.ai.navigation 2.0.14` (verificado en registry) + `com.unity.modules.ai`; bake por script (`Popayork/Construir Fase 3`) en TestArena, ruta `PathComplete`.
+- IA policial con FSM (Avanzar/Buscar cobertura/Atacar/Retirarse con poca vida) sobre NavMeshAgent; modelos `Police idle1/walk1_gameasset`.
+- Aliados SENA (`Man01`, chaleco naranja) y universitarios (`Woman01`, chaleco celeste) que siguen objetivo y pelean; enemigos con anillo rojo. Chalecos/anillos por código.
+- Oleadas por ScriptableObject (`Oleada_Prueba` 6, `Oleada_Maxima` 30); tope 30 activos, scheduler escalonado (1/3 por cuadro).
+- Caída sin gore (caen y se retiran); pooling de 30 agentes; frases colombianas por facción en subtítulos.
+- `Popayork/Verify Fase 3`: 6/6 PASS (NavMesh, oleada 6/6, avance 42.2m→5.7m, muerte, 0 bytes con 30 agentes en 300 ticks, subtítulos). Cero warnings CS propios.
 
-## Correcciones de modelos por código (Fase 2)
-- `MSR` medía 1.71m → escala ×0.439 para 0.75m; `BE1` medía 0.49m → escala ×1.222 para 0.60m. Pivotes recentrados en X/Z por `WeaponViewNormalizer`.
+## Correcciones de modelos por código (Fase 3)
+- `Police idle1` 1.53m→×1.141, `Police walk1` 1.38m→×1.270, `Man01`/`Woman01` 0.59m→×2.979 (objetivo 1.75m); pivotes recentrados. `kneeling aiming` disponible para Fase 4.
 
 ## Falta
 - Decisión narrativa misión 2 (`porque ______` en AGENTS.md §1).
-- Fases 3-7 según `docs/PLAN.md`.
+- Fases 4A-7 según `docs/PLAN.md`.
+- Integración pendiente (Fase 4B): proyectiles del jugador aún solo dañan dianas, no agentes.
 
 ## Roto / Limitaciones conocidas
 - Batch en Ubuntu 26.04 exige compat libxml2 (ver AGENTS.md > Decisiones); sin eso el Editor ni arranca.
@@ -29,10 +30,11 @@ Fecha: 2026-09-19. Fase actual: Fase 2 cerrada (compila, Verify F2 6/6 PASS, F1 
 - `ParticleSystem` exige paquete `com.unity.modules.particlesystem` (agregado).
 - En edit-mode `Awake` no corre sin `ExecuteAlways` → init perezoso en componentes testeados.
 - `PrefabUtility.SaveAsPrefabAsset` (API vigente para guardar prefabs desde Editor).
+- AI Navigation 2.0.14: `NavMeshCollectGeometry`, `BuildNavMesh()` void, `MedQualityObstacleAvoidance`, `FindObjectsByType` sin sort mode.
 
 ## Instrucciones de prueba
-1. Abrir TestArena, Play (clic en juego, WASD + mouse, Shift corre, Espacio salta, 1/2 cambian arma, R recarga, P pausa).
-2. Disparar a dianas: caen y se levantan; hitmarker blanco/rojo y chispas en impacto.
-3. Dejarse caer al vacío o verificar vida: al morir reaparece en <3s con vida y munición llenas.
-4. Opciones: sensibilidad afecta la cámara y persiste entre sesiones.
-5. `Popayork/Verify Fase 2` y `Popayork/Verify Fase 1`: todo PASS.
+1. TestArena en Play: oleada manual con `WaveManager.StartWave` (o desde Consola) y ver policías avanzar/atacar/retirarse.
+2. Aliados SENA (naranja) y Uni (celestes) pelean contra policías; los caídos se retiran sin gore.
+3. Subtítulos inferiores muestran frases ("¡Quieto ahí, parce!", "¡Aguante, parceros!").
+4. Con 30 agentes el juego mantiene fluidez (IA escalonada 1/3 por cuadro).
+5. `Popayork/Verify Fase 3` (+ F1/F2): todo PASS.
