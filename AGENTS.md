@@ -76,6 +76,7 @@ Al terminar cada fase: (a) qué hiciste, (b) cómo lo pruebo, (c) qué falta o e
 - 2026-09-19 (Fase 4A): `model.zip` descompimido (solo lectura; originales intactos): `model.fbx` (36MB, 1 malla "Model", 939716 verts) + `model.jpg` reducido a 2048px con PIL (original 16384px/66MB) en `Assets/MapaPopayan/source/`. La ciudad es una sola malla: "sector del parque" = zona jugable acotada con muros.
 - 2026-09-19 (Fase 4A): el bake NavMesh sobre colisionadores recién creados sale vacío; se bacea en 2ª pasada con la escena recién abierta (verificado empíricamente).
 - 2026-09-19 (Fase 4A): `AudioListener` agregado a la cámara del jugador (faltaba; avisaba en Play). Parche aplicado a prefab-vía-escenas Mision1 y TestArena.
+- 2026-09-19 (Fase 4B): proyectiles del jugador dañan policías (`AgentHealth` + cápsula trigger en agentes; aliados excluidos de fuego amigo). Victoria de Mision1 guarda directo con `SaveSystem` (funciona en edit-mode) y refresca `GameManager` en play.
 
 # Anexos operativos verificados
 - Proyecto existe en /home/andres/Escritorio/SENAUNITY. Verificado con `ls`: existe `ProjectSettings/` (contenía solo `ProjectVersion.txt` el 2026-09-19) y `Assets/` con `MapaPopayan/` + `Models3D/`.

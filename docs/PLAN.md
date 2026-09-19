@@ -31,11 +31,11 @@ Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets re
 - [x] Atardecer, niebla, NavMesh (1583 verts, PathComplete), spawns definidos
 - [x] Verify Fase4A + compilación + ESTADO + commit "Fase4A"
 
-## Fase 4B — Misión 1 "Empieza el caos"
-- [ ] Lógica misión: inicio claro, objetivo, progreso visible, victoria/derrota
-- [ ] Caos (fuego/humo con partículas), objetivo Torre del Reloj
-- [ ] Checkpoints + reintento <3s
-- [ ] Verify Fase4B + compilación + ESTADO + commit "Fase4B"
+## Fase 4B — Misión 1 "Empieza el caos" [CERRADA 2026-09-19: compila, Verify 4B 4/4 PASS + F1/F2/F3/4A re-PASS, commit "Fase 4B"]
+- [x] Lógica misión: intro/tutorial, objetivo visible, progreso, victoria/derrota + pantallas
+- [x] 3 oleadas progresivas a la Torre + 4 aliados; checkpoints por oleada, reintento <3s
+- [x] Caos (fuegos/humos/explosiones con sacudida, escombros) y Misión 2 desbloqueada al ganar
+- [x] Verify Fase4B + compilación + ESTADO + commit "Fase4B"
 
 ## Fase 5A — Misión 2 primera mitad
 - [ ] Caballos (ver limitación: `Horse.blend` requiere Blender o exportar a FBX)

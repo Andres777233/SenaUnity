@@ -86,6 +86,19 @@ namespace Popayork.Weapons
             {
                 dummy.TakeHit(damage, body.linearVelocity.normalized);
             }
+            else
+            {
+                var agentHealth = other.GetComponentInParent<Popayork.Enemies.AgentHealth>();
+                if (agentHealth != null && !agentHealth.IsDead)
+                {
+                    var brain = other.GetComponentInParent<Popayork.Enemies.AgentBrain>();
+                    if (brain != null && brain.Faction == Popayork.Enemies.Faction.Police)
+                    {
+                        agentHealth.TakeDamage(damage);
+                        Popayork.Core.GameEvents.RaiseTargetHit(agentHealth.IsDead);
+                    }
+                }
+            }
             if (ImpactPool.Instance != null)
             {
                 ImpactPool.Instance.SpawnImpact(point, Vector3.up);

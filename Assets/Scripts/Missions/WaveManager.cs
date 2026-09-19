@@ -32,11 +32,17 @@ namespace Popayork.Missions
 
         private void Update()
         {
+            Tick(Time.deltaTime);
+        }
+
+        // Un paso de oleada sin asignaciones: lo usa Update y el Verify.
+        public void Tick(float dt)
+        {
             if (!running || activeWave == null)
             {
                 return;
             }
-            spawnTimer -= Time.deltaTime;
+            spawnTimer -= dt;
             if (spawnTimer > 0.0f)
             {
                 return;

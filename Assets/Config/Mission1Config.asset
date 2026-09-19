@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60894f52c98f0b0379ae6ea6c11b8382, type: 3}
+  m_Name: Mission1Config
+  m_EditorClassIdentifier: Assembly-CSharp::Popayork.Missions.Mission1Config
+  missionTime: 240
+  captureRadius: 4
+  warningRadius: 14
+  waves:
+  - {fileID: 11400000, guid: 7d76b50c797807182aa6857db207a89b, type: 2}
+  - {fileID: 11400000, guid: 4b42a7f1fb664530e9bb820e08d2794b, type: 2}
+  - {fileID: 11400000, guid: ea94254e5b1707c3eb731cac6a843a5e, type: 2}
+  alliesWave: {fileID: 11400000, guid: 84de53099716fd232939579f3c309748, type: 2}

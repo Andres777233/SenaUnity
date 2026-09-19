@@ -1,27 +1,26 @@
 # ESTADO.md — Popayork — Hecho / Falta / Roto
 
-Fecha: 2026-09-19. Fase actual: Fase 4A cerrada (compila, Verify 4A 3/3 PASS, F1/F2/F3 re-PASS, commit "Fase 4A").
+Fecha: 2026-09-19. Fase actual: Fase 4B cerrada (compila, Verify 4B 4/4 PASS, F1/F2/F3/4A re-PASS, commit "Fase 4B").
 
-## Hecho (Fase 4A)
-- Mision1 con Parque Caldas: ciudad `model.fbx` como base visual (1 malla, 939716 verts) + plaza de 60m cuyo centro/altura se midieron por raycast (31×31) sobre el modelo.
-- Torre del Reloj low poly por código (28m ESTIMADO) como objetivo; `ParqueConfig` con MEDIDO=14 / ESTIMADO=11 (nada "exacto" inventado).
-- Prefabs reutilizados: 24 árboles, 10 bancas, estatua, 8 farolas + 4 fachadas coloniales con colisión y muros límite anticaída.
-- Atardecer (sol 18°, niebla 0.004) y NavMesh de la zona (1583 verts, ruta spawn→torre `PathComplete`); spawns de jugador/aliados/oleadas definidos (sin lógica aún).
-- `Popayork/Verify Fase 4A`: 3/3 PASS. Cero errores/warnings CS propios. `AudioListener` agregado a cámaras de jugador (Mision1/TestArena).
+## Hecho (Fase 4B)
+- Misión 1 "Empieza el caos": intro con título + tutorial, objetivo visible y barra de progreso; victoria (3 oleadas o 240s) / derrota (policía en la Torre) con pantallas y reintento <3s.
+- 3 oleadas progresivas (4/6/8 policías) hacia la Torre + 4 aliados defensores; checkpoints por oleada con subtítulo; al ganar se desbloquea Misión 2 en el guardado.
+- Caos: 4 fuegos + 4 humos en loop, explosiones cada 12s con boom procedural, sacudida y daño en área, 8 escombros.
+- Proyectiles del jugador ya dañan policías (cápsula trigger en agentes; aliados sin fuego amigo) con hitmarker.
+- `Popayork/Verify Fase 4B`: 4/4 PASS (arranque, derrota sin defensa, victoria+guardado, caos). Cero errores/warnings CS propios.
 
-## Rendimiento (Fase 4A)
+## Rendimiento (Fase 4A, vigente)
 - Presupuesto estático medido en batch: 125 renderers, 1512418 tris (99% ciudad estática, 1 draw call), 89 colliders, textura ciudad 2048px.
-- FPS promedio con render: NO medible en batch (`-nographics` no renderiza; el run play-mode en batch se cuelga/segfaulta al salir: 2 intentos, no insistir). Pendiente que el usuario lo mida en el Editor con `Popayork/Medir FPS Mision1` (600 cuadros, loguea promedio).
+- FPS promedio con render: NO medible en batch (pendiente usuario en Editor con `Popayork/Medir FPS Mision1`).
 
 ## Falta
 - Decisión narrativa misión 2 (`porque ______` en AGENTS.md §1).
-- Fases 4B-7 según `docs/PLAN.md`.
-- Integración pendiente (Fase 4B): proyectiles del jugador aún solo dañan dianas, no agentes; oleadas aún no cableadas en Mision1.
+- Fases 5A-7 según `docs/PLAN.md`.
 
 ## Roto / Limitaciones conocidas
 - Batch en Ubuntu 26.04 exige compat libxml2 (ver AGENTS.md > Decisiones); sin eso el Editor ni arranca.
 - `model.zip`/`model.jpeg` originales intactos; se agregaron `source/model.fbx` + `source/model.jpg` (2k). `.blend` x3 no nativos sin Blender.
-- Lock stale `Temp/UnityLockfile` tras crash del perf: se borra si no hay Editor abierto (regenerable, no se commitea).
+- Lock stale `Temp/UnityLockfile` tras crash: se borra si no hay Editor abierto (regenerable, no se commitea).
 - Warnings de importación de los .blend de terceros (ajenos al código propio, se mantienen).
 
 ## APIs Unity 6.6 verificadas con compilador
@@ -35,8 +34,8 @@ Fecha: 2026-09-19. Fase actual: Fase 4A cerrada (compila, Verify 4A 3/3 PASS, F1
 - NavMesh bake en 2 pasadas (escena recién abierta); `NavMesh.CalculateTriangulation` funciona en edit-mode para diagnosticar bakes vacíos.
 
 ## Instrucciones de prueba
-1. Abrir Mision1, Play: aparecer en la plaza, caminar entre bancas/árboles sin atravesar fachadas ni caer del mapa.
-2. Ver la Torre del Reloj blanca con reloj y techo de teja al nororiente de la plaza.
-3. Atardecer + niebla ligera sobre la ciudad blanca de fondo.
-4. `Popayork/Verify Fase 4A` (+ F1/F2/F3): todo PASS.
-5. `Popayork/Medir FPS Mision1` en el Editor y anotar el promedio aquí.
+1. Mision1 en Play: intro "EMPIEZA EL CAOS", botón ¡A defender la Torre!, objetivo y barra visibles.
+2. Frenar 3 oleadas con aliados; explosiones sacuden la cámara; checkpoints por oleada.
+3. Victoria desbloquea Misión 2 (ver en Campaña); derrota si un tomba toca la Torre.
+4. Reintentar recarga en <3s; P pausa como siempre.
+5. `Popayork/Verify Fase 4B` (+ F1/F2/F3/4A): todo PASS.
