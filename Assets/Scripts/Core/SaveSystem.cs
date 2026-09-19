@@ -58,6 +58,8 @@ namespace Popayork.Core
             sb.Append(data.masterVolume.ToString("R", CultureInfo.InvariantCulture));
             sb.Append(",\"mouseSensitivity\":");
             sb.Append(data.mouseSensitivity.ToString("R", CultureInfo.InvariantCulture));
+            sb.Append(",\"quality\":");
+            sb.Append(data.quality.ToString(CultureInfo.InvariantCulture));
             sb.Append(",\"unlockedMissions\":");
             AppendStringList(sb, data.unlockedMissions);
             sb.Append(",\"completedMissions\":");
@@ -78,6 +80,7 @@ namespace Popayork.Core
             data.version = ReadInt(json, "\"version\":", 1);
             data.masterVolume = ReadFloat(json, "\"masterVolume\":", GameConfig.DefaultVolume);
             data.mouseSensitivity = ReadFloat(json, "\"mouseSensitivity\":", GameConfig.DefaultSensitivity);
+            data.quality = ReadInt(json, "\"quality\":", 0);
             ReadStringList(json, "\"unlockedMissions\":", data.unlockedMissions);
             ReadStringList(json, "\"completedMissions\":", data.completedMissions);
             return data;

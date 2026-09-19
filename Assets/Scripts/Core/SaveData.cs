@@ -11,6 +11,7 @@ namespace Popayork.Core
         public List<string> completedMissions = new List<string>();
         public float masterVolume = 0.8f;
         public float mouseSensitivity = 1.0f;
+        public int quality;
 
         public static SaveData NewDefault()
         {

@@ -45,6 +45,7 @@ namespace Popayork.UI
 
         public void ShowIntro()
         {
+            Time.timeScale = 0f;
             if (introPanel != null)
             {
                 introPanel.SetActive(true);
@@ -61,6 +62,7 @@ namespace Popayork.UI
 
         public void ShowObjective(string objective)
         {
+            Time.timeScale = 1f;
             if (introPanel != null)
             {
                 introPanel.SetActive(false);
@@ -97,6 +99,7 @@ namespace Popayork.UI
 
         public void ShowResult(bool victory, string message)
         {
+            Time.timeScale = 0f;
             if (resultPanel != null)
             {
                 resultPanel.SetActive(true);

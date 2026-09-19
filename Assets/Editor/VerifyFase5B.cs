@@ -22,6 +22,7 @@ public static class VerifyFase5B
     public static void RunBatch()
     {
         bool ok = RunAll();
+        UnityEngine.Time.timeScale = 1f;
         Debug.Log(ok ? "Verify Fase 5B: PASS" : "Verify Fase 5B: FAIL");
         if (!ok)
         {

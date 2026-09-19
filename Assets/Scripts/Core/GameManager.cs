@@ -31,6 +31,11 @@ namespace Popayork.Core
             get { return currentSave != null ? currentSave.mouseSensitivity : GameConfig.DefaultSensitivity; }
         }
 
+        public int Quality
+        {
+            get { return currentSave != null ? currentSave.quality : 0; }
+        }
+
         private void Awake()
         {
             if (instance != null && instance != this)
@@ -42,6 +47,7 @@ namespace Popayork.Core
             DontDestroyOnLoad(gameObject);
             currentSave = SaveSystem.Load();
             ApplyAudio();
+            PerfBoot.ApplyQuality(Quality);
             if (SaveLoaded != null)
             {
                 SaveLoaded(currentSave);
@@ -67,6 +73,17 @@ namespace Popayork.Core
             }
             currentSave.mouseSensitivity = Mathf.Clamp(s, 0.1f, 5.0f);
             SaveSystem.Save(currentSave);
+        }
+
+        public void SetQuality(int q)
+        {
+            if (currentSave == null)
+            {
+                return;
+            }
+            currentSave.quality = Mathf.Clamp(q, 0, 1);
+            SaveSystem.Save(currentSave);
+            PerfBoot.ApplyQuality(currentSave.quality);
         }
 
         public bool IsMissionUnlocked(string missionScene)
@@ -105,6 +122,7 @@ namespace Popayork.Core
         {
             currentSave = SaveSystem.Load();
             ApplyAudio();
+            PerfBoot.ApplyQuality(Quality);
             if (SaveLoaded != null)
             {
                 SaveLoaded(currentSave);

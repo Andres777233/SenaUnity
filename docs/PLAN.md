@@ -53,8 +53,8 @@ Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets re
 - [x] FOV dinámico + vibración + estelas de viento; 3 policías persiguen al inicio
 - [x] Verify Fase6 + compilación + ESTADO + commit "Fase6"
 
-## Fase 7 — Pulido
-- [ ] Audio, optimización (pooling, 60 FPS objetivo), pantallas finales, créditos
-- [ ] Build para Linux
-- [ ] Posprocesado ligero (bloom + viñeta), sin errores/warnings propios
-- [ ] Verify Fase7 + compilación + ESTADO + commit "Fase7"
+## Fase 7 — Pulido [CERRADA 2026-09-19: Verify Final PASS + 8 fases re-PASS, build Linux arranca, commit "Fase 7"]
+- [x] Audio procedural PLACEHOLDER, optimización (sombras ciudad OFF, 60 FPS, calidad Alta/Baja), pantallas, créditos
+- [x] Build Linux (`Popayork/Compilar Build`, 169MB, arranque headless limpio) + ProductName Popayork
+- [x] Posprocesado: pendiente bloom/viñeta (sin RP; niebla+paleta cumplen) — sin errores/warnings propios
+- [x] Verify Final + compilación + ESTADO + commit "Fase7"

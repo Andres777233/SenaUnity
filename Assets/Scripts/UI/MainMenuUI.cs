@@ -9,12 +9,18 @@ namespace Popayork.UI
         [SerializeField] private Slider volumeSlider;
         [SerializeField] private Slider sensitivitySlider;
         [SerializeField] private GameObject optionsPanel;
+        [SerializeField] private GameObject creditsPanel;
 
         public void Bind(Slider volume, Slider sensitivity, GameObject options)
         {
             volumeSlider = volume;
             sensitivitySlider = sensitivity;
             optionsPanel = options;
+        }
+
+        public void BindCredits(GameObject credits)
+        {
+            creditsPanel = credits;
         }
 
         private void Start()
@@ -63,6 +69,30 @@ namespace Popayork.UI
             if (optionsPanel != null)
             {
                 optionsPanel.SetActive(!optionsPanel.activeSelf);
+            }
+        }
+
+        public void OnCreditsPressed()
+        {
+            if (creditsPanel != null)
+            {
+                creditsPanel.SetActive(!creditsPanel.activeSelf);
+            }
+        }
+
+        public void OnQualityHigh()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SetQuality(0);
+            }
+        }
+
+        public void OnQualityLow()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SetQuality(1);
             }
         }
 

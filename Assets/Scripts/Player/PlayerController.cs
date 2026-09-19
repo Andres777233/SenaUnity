@@ -17,6 +17,7 @@ namespace Popayork.Player
         private float shakeTrauma;
         private float verticalSpeed;
         private bool sprinting;
+        private float stepTimer;
 
         public bool Sprinting
         {
@@ -116,6 +117,23 @@ namespace Popayork.Player
 
             Vector3 motion = wish * speed + Vector3.up * verticalSpeed;
             controller.Move(motion * dt);
+            if (controller.isGrounded && wish.sqrMagnitude > 0.1f)
+            {
+                stepTimer -= dt;
+                if (stepTimer <= 0f)
+                {
+                    stepTimer = 1.8f / speed;
+                    var audio = GameManager.Instance != null ? AudioManager.Instance : null;
+                    if (audio != null)
+                    {
+                        audio.PlayStep();
+                    }
+                }
+            }
+            else
+            {
+                stepTimer = 0f;
+            }
         }
 
         public void AddRecoil(float kickDegrees, float shakeAmount)

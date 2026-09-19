@@ -81,6 +81,8 @@ Al terminar cada fase: (a) qué hiciste, (b) cómo lo pruebo, (c) qué falta o e
 - 2026-09-19 (Fase 5A): `Horse.blend` inservible (exportador FBX de Blender 5.0 roto + script Unity incompatible); malla real extraída con Blender a `HorseMesh.json` (952 verts, 3 materiales) y reconstruida por código en el builder.
 - 2026-09-19 (Fase 5B): SMART como `AgentData` (facción Police, anillo casi negro, `Police idle2`); `WaveEntry.variant` selecciona modelo en oleadas; defensa con 2º WaveManager y victoria por eliminación o retirada a cartones.
 - 2026-09-19 (Fase 6): NavMesh `Volume` bakea vacío en Mision3 pero `Children` (pista emparentada) sí (379 verts); el shutdown del batch a veces segfaultea tras el PASS (inestabilidad del batch, no del juego).
+- 2026-09-19 (Fase 7): audio 100% procedural (`AudioManager`: música menú/misión, pasos, clic, boom, viento) marcado PLACEHOLDER; `ProductName=Popayork` por script; build Linux con `Popayork/Compilar Build` verificado en arranque headless.
+- 2026-09-19 (Fase 7): bugs críticos corregidos: `AudioClip.Create(stream:true)+SetData` (error real visto en el log del build), enemigos/caos actuando durante intros (congelado con `timeScale` en `MissionUI`), `AudioListener` faltante en MainMenu.
 
 # Anexos operativos verificados
 - Proyecto existe en /home/andres/Escritorio/SENAUNITY. Verificado con `ls`: existe `ProjectSettings/` (contenía solo `ProjectVersion.txt` el 2026-09-19) y `Assets/` con `MapaPopayan/` + `Models3D/`.
