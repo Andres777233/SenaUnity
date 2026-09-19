@@ -1,0 +1,55 @@
+# PLAN.md — Popayork — Checklist de fases
+
+Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets reales: `docs/INVENTARIO_ASSETS.md`. No inventar assets. No usar `-createProject`. Verificar `ProjectSettings/` con `ls` antes de correr Unity.
+
+## Fase 1 — Base [CERRADA 2026-09-19: compila, Verify 5/5 PASS, commit "Fase 1"]
+- [x] Escenas base (MainMenu, Campaign, Mision1/2/3) generadas y en Build Settings
+- [x] GameManager + SceneLoader + sistema de guardado
+- [x] Menú principal + selección de misiones + pausa (tecla P)
+- [x] Script `Assets/Editor/` con menú `Popayork/Construir Proyecto`
+- [x] Script `Popayork/Verify Fase 1` con PASS/FAIL en consola y log
+- [x] Compilación batch + revisión de log + `docs/ESTADO.md` + commit "Fase 1"
+
+## Fase 2 — Jugador
+- [ ] Controlador FPS + vida + 2 armas (datos en ScriptableObjects)
+- [ ] HUD (objetivo, vida, munición, subtítulos, sensibilidad/FOV ajustables)
+- [ ] Escena TestArena jugable
+- [ ] Game feel base (retroceso, sacudida, hit markers, FOV correr)
+- [ ] Verify Fase2 + compilación + ESTADO + commit "Fase2"
+
+## Fase 3 — Enemigos y aliados
+- [ ] IA policial (máx. 30 agentes activos, pooling, sin allocs por frame)
+- [ ] Aliados estudiantes
+- [ ] Sistema de oleadas (ScriptableObjects)
+- [ ] Enemigos caen/se retiran, sin gore
+- [ ] Verify Fase3 + compilación + ESTADO + commit "Fase3"
+
+## Fase 4A — Escenario Parque Caldas desde Assets/MapaPopayan
+- [ ] Escenario construido solo desde `Assets/MapaPopayan` (ver limitaciones en ESTADO: .zip no importable, textura 69M pesada)
+- [ ] Estilo: low poly flat shading, paleta limitada, niebla + luz cálida atardecer
+- [ ] Verify Fase4A + compilación + ESTADO + commit "Fase4A"
+
+## Fase 4B — Misión 1 "Empieza el caos"
+- [ ] Lógica misión: inicio claro, objetivo, progreso visible, victoria/derrota
+- [ ] Caos (fuego/humo con partículas), objetivo Torre del Reloj
+- [ ] Checkpoints + reintento <3s
+- [ ] Verify Fase4B + compilación + ESTADO + commit "Fase4B"
+
+## Fase 5A — Misión 2 primera mitad
+- [ ] Caballos (ver limitación: `Horse.blend` requiere Blender o exportar a FBX)
+- [ ] Ruta al Morro de Tulcán
+- [ ] Verify Fase5A + compilación + ESTADO + commit "Fase5A"
+
+## Fase 5B — Misión 2 segunda mitad
+- [ ] Defensa del Morro y retirada
+- [ ] Verify Fase5B + compilación + ESTADO + commit "Fase5B"
+
+## Fase 6 — Misión 3
+- [ ] Descenso en cartón hasta el río
+- [ ] Verify Fase6 + compilación + ESTADO + commit "Fase6"
+
+## Fase 7 — Pulido
+- [ ] Audio, optimización (pooling, 60 FPS objetivo), pantallas finales, créditos
+- [ ] Build para Linux
+- [ ] Posprocesado ligero (bloom + viñeta), sin errores/warnings propios
+- [ ] Verify Fase7 + compilación + ESTADO + commit "Fase7"
