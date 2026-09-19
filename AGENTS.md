@@ -73,6 +73,9 @@ Al terminar cada fase: (a) qué hiciste, (b) cómo lo pruebo, (c) qué falta o e
 - 2026-09-19 (Fase 3): `com.unity.ai.navigation` NO venía instalado; verificado en registry (`latest 2.0.14`, sin adivinar) y agregado `2.0.14` + `com.unity.modules.ai 1.0.0` (built-in). Modelos: policías `Police idle1/walk1_gameasset`, aliados `Man01` (SENA) y `Woman01` (Uni).
 - 2026-09-19 (Fase 3): API real de AI Navigation 2.0.14 (leída del paquete, no adivinada): `useGeometry` es `NavMeshCollectGeometry`, `BuildNavMesh()` devuelve `void`, `ObstacleAvoidanceType.MedQualityObstacleAvoidance`; `FindObjectsByType` sin `FindObjectsSortMode` (obsoleto).
 - 2026-09-19 (Fase 3): el registro del pool en memoria no se guarda en el `.unity`; `AgentPool.Discover()` re-registra al cargar y los datos de agentes van serializados (`[SerializeField]`).
+- 2026-09-19 (Fase 4A): `model.zip` descompimido (solo lectura; originales intactos): `model.fbx` (36MB, 1 malla "Model", 939716 verts) + `model.jpg` reducido a 2048px con PIL (original 16384px/66MB) en `Assets/MapaPopayan/source/`. La ciudad es una sola malla: "sector del parque" = zona jugable acotada con muros.
+- 2026-09-19 (Fase 4A): el bake NavMesh sobre colisionadores recién creados sale vacío; se bacea en 2ª pasada con la escena recién abierta (verificado empíricamente).
+- 2026-09-19 (Fase 4A): `AudioListener` agregado a la cámara del jugador (faltaba; avisaba en Play). Parche aplicado a prefab-vía-escenas Mision1 y TestArena.
 
 # Anexos operativos verificados
 - Proyecto existe en /home/andres/Escritorio/SENAUNITY. Verificado con `ls`: existe `ProjectSettings/` (contenía solo `ProjectVersion.txt` el 2026-09-19) y `Assets/` con `MapaPopayan/` + `Models3D/`.

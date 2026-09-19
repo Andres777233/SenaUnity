@@ -24,10 +24,12 @@ Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets re
 - [x] Enemigos caen/se retiran, sin gore
 - [x] Verify Fase3 + compilación + ESTADO + commit "Fase3"
 
-## Fase 4A — Escenario Parque Caldas desde Assets/MapaPopayan
-- [ ] Escenario construido solo desde `Assets/MapaPopayan` (ver limitaciones en ESTADO: .zip no importable, textura 69M pesada)
-- [ ] Estilo: low poly flat shading, paleta limitada, niebla + luz cálida atardecer
-- [ ] Verify Fase4A + compilación + ESTADO + commit "Fase4A"
+## Fase 4A — Escenario Parque Caldas desde Assets/MapaPopayan [CERRADA 2026-09-19: compila, Verify 4A 3/3 PASS + F1/F2/F3 re-PASS, commit "Fase 4A"]
+- [x] Escena Mision1 con sector del parque (plaza medida por raycast, Torre del Reloj por código)
+- [x] ParqueConfig con valores MEDIDO (14) / ESTIMADO (11)
+- [x] Prefabs reutilizados (Arbol/Banca/Estatua/Farola) + fachadas con colisión + límites
+- [x] Atardecer, niebla, NavMesh (1583 verts, PathComplete), spawns definidos
+- [x] Verify Fase4A + compilación + ESTADO + commit "Fase4A"
 
 ## Fase 4B — Misión 1 "Empieza el caos"
 - [ ] Lógica misión: inicio claro, objetivo, progreso visible, victoria/derrota
