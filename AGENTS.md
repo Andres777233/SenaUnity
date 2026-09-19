@@ -68,6 +68,8 @@ Al terminar cada fase: (a) qué hiciste, (b) cómo lo pruebo, (c) qué falta o e
 - 2026-09-19 (Fase 1): tecla de pausa = `P` (no usa Escape para no chocar con liberar cursor del Editor).
 - 2026-09-19 (Fase 1): usar `FindAnyObjectByType` en vez de `FindFirstObjectByType` (obsoleto CS0618 en 6.6).
 - 2026-09-19 (Fase 1): `SaveSystem` usa JSON manual propio (el módulo JSONSerialize no quedaba referenciado por Assembly-CSharp en este proyecto).
+- 2026-09-19 (Fase 2): agregado `com.unity.modules.particlesystem 1.0.0` (módulo built-in; sin él no existe `ParticleSystem`). Armas elegidas de `Guns.fbx`: `MSR` (Fusil MSR) y `BE1` (Subfusil BE1).
+- 2026-09-19 (Fase 2): en edit-mode `Awake` no corre (sin `ExecuteAlways`); los componentes usan init perezoso (`EnsureParts`) para que el Verify pueda probarlos sin Play mode.
 
 # Anexos operativos verificados
 - Proyecto existe en /home/andres/Escritorio/SENAUNITY. Verificado con `ls`: existe `ProjectSettings/` (contenía solo `ProjectVersion.txt` el 2026-09-19) y `Assets/` con `MapaPopayan/` + `Models3D/`.

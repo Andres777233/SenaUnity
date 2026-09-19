@@ -39,13 +39,23 @@ public static class VerifyFase1
     private static bool CheckBuildSettings()
     {
         var scenes = EditorBuildSettings.scenes;
-        bool pass = scenes != null && scenes.Length == GameConfig.AllScenes.Length;
+        bool pass = scenes != null;
         if (pass)
         {
-            for (int i = 0; i < GameConfig.AllScenes.Length; i++)
+            // Las 5 escenas base deben estar presentes y activas (se permiten extras, ej. TestArena).
+            foreach (string expected in GameConfig.AllScenes)
             {
-                string expected = "Assets/Scenes/" + GameConfig.AllScenes[i] + ".unity";
-                if (i >= scenes.Length || scenes[i].path != expected || !scenes[i].enabled)
+                string path = "Assets/Scenes/" + expected + ".unity";
+                bool found = false;
+                foreach (var s in scenes)
+                {
+                    if (s.path == path && s.enabled)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
                 {
                     pass = false;
                     break;

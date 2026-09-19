@@ -10,12 +10,12 @@ Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets re
 - [x] Script `Popayork/Verify Fase 1` con PASS/FAIL en consola y log
 - [x] Compilación batch + revisión de log + `docs/ESTADO.md` + commit "Fase 1"
 
-## Fase 2 — Jugador
-- [ ] Controlador FPS + vida + 2 armas (datos en ScriptableObjects)
-- [ ] HUD (objetivo, vida, munición, subtítulos, sensibilidad/FOV ajustables)
-- [ ] Escena TestArena jugable
-- [ ] Game feel base (retroceso, sacudida, hit markers, FOV correr)
-- [ ] Verify Fase2 + compilación + ESTADO + commit "Fase2"
+## Fase 2 — Jugador [CERRADA 2026-09-19: compila, Verify F2 6/6 PASS + F1 re-PASS, commit "Fase 2"]
+- [x] Controlador FPS + vida + 2 armas (datos en ScriptableObjects)
+- [x] HUD (objetivo, vida, munición, subtítulos, sensibilidad/FOV ajustables)
+- [x] Escena TestArena jugable
+- [x] Game feel base (retroceso, sacudida, hit markers, FOV correr)
+- [x] Verify Fase2 + compilación + ESTADO + commit "Fase2"
 
 ## Fase 3 — Enemigos y aliados
 - [ ] IA policial (máx. 30 agentes activos, pooling, sin allocs por frame)

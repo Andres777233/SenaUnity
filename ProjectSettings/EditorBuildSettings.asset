@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mision3.unity
     guid: b0588d604bd762eed978e9d662e26931
+  - enabled: 1
+    path: Assets/Scenes/TestArena.unity
+    guid: c3afe52a4eb48bd51a450c635f310081
   m_configObjects: {}

@@ -9,6 +9,7 @@ namespace Popayork.Core
         public const string Mission1Scene = "Mision1";
         public const string Mission2Scene = "Mision2";
         public const string Mission3Scene = "Mision3";
+        public const string TestArenaScene = "TestArena";
 
         public const float DefaultVolume = 0.8f;
         public const float DefaultSensitivity = 1.0f;
