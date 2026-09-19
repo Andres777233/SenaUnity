@@ -83,6 +83,7 @@ Al terminar cada fase: (a) qué hiciste, (b) cómo lo pruebo, (c) qué falta o e
 - 2026-09-19 (Fase 6): NavMesh `Volume` bakea vacío en Mision3 pero `Children` (pista emparentada) sí (379 verts); el shutdown del batch a veces segfaultea tras el PASS (inestabilidad del batch, no del juego).
 - 2026-09-19 (Fase 7): audio 100% procedural (`AudioManager`: música menú/misión, pasos, clic, boom, viento) marcado PLACEHOLDER; `ProductName=Popayork` por script; build Linux con `Popayork/Compilar Build` verificado en arranque headless.
 - 2026-09-19 (Fase 7): bugs críticos corregidos: `AudioClip.Create(stream:true)+SetData` (error real visto en el log del build), enemigos/caos actuando durante intros (congelado con `timeScale` en `MissionUI`), `AudioListener` faltante en MainMenu.
+- 2026-09-19 (Parque Caldas): `docs/ESPECIFICACION_PARQUE_CALDAS.md` es la fuente de verdad del escenario de Mision1 (convención DOCUMENTADO/MEDIDO/ESTIMADO, ejes X=este Z=norte, origen en la estatua).
 
 # Anexos operativos verificados
 - Proyecto existe en /home/andres/Escritorio/SENAUNITY. Verificado con `ls`: existe `ProjectSettings/` (contenía solo `ProjectVersion.txt` el 2026-09-19) y `Assets/` con `MapaPopayan/` + `Models3D/`.
