@@ -1,24 +1,24 @@
 # ESTADO.md — Popayork — Hecho / Falta / Roto
 
-Fecha: 2026-09-19. Fase actual: Fase 5B cerrada (compila, Verify 5B 4/4 PASS, resto re-PASS, commit "Fase 5B").
+Fecha: 2026-09-19. Fase actual: Fase 6 cerrada (compila, Verify 6 4/4 PASS, resto re-PASS, commit "Fase 6").
 
-## Hecho (Fase 5B)
-- Defensa del Morro: 3 oleadas escaladas (4/5/10) con policía + SMART Táctico ficticio (`Police idle2`, anillo casi negro, 140 vida); `WaveEntry.variant` compone modelos por oleada.
-- Retirada: con ≥8 hostiles activos suena el aviso y se activa la salida a los cartones; llegar completa Mision2 y desbloquea Mision3 en el guardado.
-- Derrota a las 3 caídas con pantalla y reintento (<3s); victoria también por eliminar todo.
-- Trincheras, cartones y 2º WaveManager en Mision2 + rebake NavMesh (303 verts).
-- `Popayork/Verify Fase 5B`: 4/4 PASS (escala, retirada, salida+guardado, derrota). Cero errores/warnings CS propios.
+## Hecho (Fase 6)
+- Mision3: ladera de ~600m con curvas generada por script (90 puntos, barandas, 24 pinos) + 3 rampas con salto + 8 rocas que frenan/dañan/giran sin matar.
+- Cartón con inercia: acelera por pendiente (verificado 4.6 m/s en 3s), dirección, freno, topes, checkpoints con respawn y FOV 75→90 + vibración + estelas de viento.
+- 3 policías persiguen al inicio (los dejas atrás); río con agua animada + espumas; llegada guarda Mision3 (+ `Campania_Completa` si están las 3).
+- `Popayork/Verify Fase 6`: 4/4 PASS (pendiente, choque, río+guardado, stats 259 renderers/83k tris). Cero errores/warnings CS propios.
 
 ## Rendimiento (vigente)
-- Mision1: 125 renderers, 1512418 tris, 89 colliders (batch). FPS con render pendiente (usuario en Editor con `Popayork/Medir FPS Mision1`).
+- Mision1: 125 renderers, 1512418 tris, 89 colliders (batch). Mision3: 259 renderers, 83602 tris. FPS con render pendiente (usuario en Editor).
 
 ## Falta
-- Fases 6-7 según `docs/PLAN.md`.
+- Fase 7 según `docs/PLAN.md` (audio, optimización, pantallas finales, créditos, build Linux).
 
 ## Roto / Limitaciones conocidas
 - Batch en Ubuntu 26.04 exige compat libxml2 (ver AGENTS.md > Decisiones); sin eso el Editor ni arranca.
 - `model.zip`/`model.jpeg`/`Horse.blend` originales intactos. `.blend` restantes no nativos (exportador Blender 5.0 roto).
-- Lock stale `Temp/UnityLockfile` tras crash: se borra si no hay Editor abierto (regenerable, no se commitea).
+- Shutdown del batch a veces segfaultea DESPUÉS del PASS (teardown del Editor, no del juego); un run colgó con lock stale (se borra si no hay Editor abierto).
+- Test [Choque] mostró 1 flaky FAIL entre runs (física edit-mode); pasó en las demás (2/3). Vigilar.
 - Warnings de importación de los .blend de terceros (ajenos al código propio, se mantienen).
 
 ## APIs Unity 6.6 verificadas con compilador
@@ -29,12 +29,12 @@ Fecha: 2026-09-19. Fase actual: Fase 5B cerrada (compila, Verify 5B 4/4 PASS, re
 - En edit-mode `Awake` no corre sin `ExecuteAlways` → init perezoso en componentes testeados.
 - `PrefabUtility.SaveAsPrefabAsset` (API vigente para guardar prefabs desde Editor).
 - AI Navigation 2.0.14: `NavMeshCollectGeometry`, `BuildNavMesh()` void, `MedQualityObstacleAvoidance`, `FindObjectsByType` sin sort mode.
-- NavMesh bake en 2 pasadas (escena recién abierta); `NavMesh.CalculateTriangulation` funciona en edit-mode para diagnosticar bakes vacíos.
-- Malla del camino con winding invertido no bakea (solo reversos); verificar normales hacia arriba.
+- NavMesh bake en 2 pasadas (escena recién abierta); modo `Volume` falló en Mision3 y `Children` sí funcionó.
+- `NavMesh.CalculateTriangulation` funciona en edit-mode para diagnosticar bakes vacíos.
 
 ## Instrucciones de prueba
-1. Mision2: llegar al Morro (5A), defender 3 oleadas con aliados en trincheras.
-2. Con 8+ enemigos llega el aviso: correr a los cartones (flecha/brújula) para ganar y desbloquear Mision3.
-3. Morir 3 veces = derrota con reintento; P pausa como siempre.
-4. SMART de negro con más vida y daño en la oleada final.
-5. `Popayork/Verify Fase 5B` (+ resto): todo PASS.
+1. Mision3 en Play: ¡Nos tiramos! A/D dirección, S freno, rampas y rocas en la pista.
+2. FOV que sube con la velocidad + vibración; checkpoints y 3 tombos que se quedan atrás.
+3. Caer al río: resultados y Mision3 guardada; P pausa como siempre.
+4. Sin muerte injusta: los golpes solo frenan/dañan y reapareces en puerta.
+5. `Popayork/Verify Fase 6` (+ resto): todo PASS.

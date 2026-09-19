@@ -21,7 +21,7 @@ namespace Popayork.Enemies
         private Transform targetTransform;
         [SerializeField] private PlayerHealth playerTarget;
         private AgentHealth agentTarget;
-        private Vector3 objectivePoint;
+        [SerializeField] private Vector3 objectivePoint;
         private int coverIndex = -1;
 
         private float attackTimer;

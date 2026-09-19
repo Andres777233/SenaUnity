@@ -48,9 +48,10 @@ Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets re
 - [x] Derrota a las 3 caídas + reintento; victoria desbloquea Misión 3
 - [x] Verify Fase5B + compilación + ESTADO + commit "Fase5B"
 
-## Fase 6 — Misión 3
-- [ ] Descenso en cartón hasta el río
-- [ ] Verify Fase6 + compilación + ESTADO + commit "Fase6"
+## Fase 6 — Misión 3 [CERRADA 2026-09-19: compila, Verify 6 4/4 PASS + resto re-PASS, commit "Fase 6"]
+- [x] Descenso en cartón (pendiente, rampas, obstáculos con penalización, checkpoints, río)
+- [x] FOV dinámico + vibración + estelas de viento; 3 policías persiguen al inicio
+- [x] Verify Fase6 + compilación + ESTADO + commit "Fase6"
 
 ## Fase 7 — Pulido
 - [ ] Audio, optimización (pooling, 60 FPS objetivo), pantallas finales, créditos
