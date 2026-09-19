@@ -64,6 +64,11 @@ namespace Popayork.Enemies
             get { return slotIndex; }
         }
 
+        public string VariantName
+        {
+            get { return data != null ? data.displayName : string.Empty; }
+        }
+
         public AgentHealth Health
         {
             get { return health; }

@@ -1,23 +1,23 @@
 # ESTADO.md — Popayork — Hecho / Falta / Roto
 
-Fecha: 2026-09-19. Fase actual: Fase 5A cerrada (compila, Verify 5A 4/4 PASS, F1/F2/F3/4A/4B re-PASS, commit "Fase 5A").
+Fecha: 2026-09-19. Fase actual: Fase 5B cerrada (compila, Verify 5B 4/4 PASS, resto re-PASS, commit "Fase 5B").
 
-## Hecho (Fase 5A)
-- Decisión narrativa misión 2 completada en AGENTS.md §1 (universitarios rivales por acusación de "vender el paro"); `AgentData.hostile` nuevo (policías y Uni rival = true).
-- Caballo con modelo real: `Horse.blend` inservible en Blender 5.0/Unity (exportador roto) → malla extraída a `HorseMesh.json` (952 verts, 3 materiales) y reconstruida por código (medido 9.27m → escala ×0.237 para 2.2m). Montar/desmontar con E, trote 6 / galope 11, espera donde te bajas, cámara FP en la silla.
-- Mision2: ruta parque→Morro de 447m (Morro medido: cima (520, 78, 355)), camino + barandas + 12 baldosas de colisión + campamento + pirámide del Morro; 3 volúmenes NavMesh; Mision2 registrada en Build Settings.
-- 4 checkpoints en orden (2 a caballo, 1 emboscada policía+Uni rival, llegada) con brújula al Morro y progreso; llegada guarda `Mision2_Ruta`.
-- `Popayork/Verify Fase 5A`: 4/4 PASS. Cero errores/warnings CS propios.
+## Hecho (Fase 5B)
+- Defensa del Morro: 3 oleadas escaladas (4/5/10) con policía + SMART Táctico ficticio (`Police idle2`, anillo casi negro, 140 vida); `WaveEntry.variant` compone modelos por oleada.
+- Retirada: con ≥8 hostiles activos suena el aviso y se activa la salida a los cartones; llegar completa Mision2 y desbloquea Mision3 en el guardado.
+- Derrota a las 3 caídas con pantalla y reintento (<3s); victoria también por eliminar todo.
+- Trincheras, cartones y 2º WaveManager en Mision2 + rebake NavMesh (303 verts).
+- `Popayork/Verify Fase 5B`: 4/4 PASS (escala, retirada, salida+guardado, derrota). Cero errores/warnings CS propios.
 
 ## Rendimiento (vigente)
 - Mision1: 125 renderers, 1512418 tris, 89 colliders (batch). FPS con render pendiente (usuario en Editor con `Popayork/Medir FPS Mision1`).
 
 ## Falta
-- Fases 5B-7 según `docs/PLAN.md`.
+- Fases 6-7 según `docs/PLAN.md`.
 
 ## Roto / Limitaciones conocidas
 - Batch en Ubuntu 26.04 exige compat libxml2 (ver AGENTS.md > Decisiones); sin eso el Editor ni arranca.
-- `model.zip`/`model.jpeg`/`Horse.blend` originales intactos. `.blend` restantes no nativos (exportador Blender 5.0 roto para FBX/OBJ: solo gltf/fbx mínimo sirven).
+- `model.zip`/`model.jpeg`/`Horse.blend` originales intactos. `.blend` restantes no nativos (exportador Blender 5.0 roto).
 - Lock stale `Temp/UnityLockfile` tras crash: se borra si no hay Editor abierto (regenerable, no se commitea).
 - Warnings de importación de los .blend de terceros (ajenos al código propio, se mantienen).
 
@@ -33,8 +33,8 @@ Fecha: 2026-09-19. Fase actual: Fase 5A cerrada (compila, Verify 5A 4/4 PASS, F1
 - Malla del camino con winding invertido no bakea (solo reversos); verificar normales hacia arriba.
 
 ## Instrucciones de prueba
-1. Mision2 en Play: intro, E para montar el caballo junto al campamento, WASD + Shift (galope) por el camino.
-2. Seguir la flecha naranja (distancia al Morro); E desmonta y el caballo espera para remontar.
-3. Emboscada en el cruce: desmontar y pelear con tombos y Uni rivales (anillo rojo).
-4. Llegar a la cima: mensaje de llegada; P pausa como siempre.
-5. `Popayork/Verify Fase 5A` (+ resto): todo PASS.
+1. Mision2: llegar al Morro (5A), defender 3 oleadas con aliados en trincheras.
+2. Con 8+ enemigos llega el aviso: correr a los cartones (flecha/brújula) para ganar y desbloquear Mision3.
+3. Morir 3 veces = derrota con reintento; P pausa como siempre.
+4. SMART de negro con más vida y daño en la oleada final.
+5. `Popayork/Verify Fase 5B` (+ resto): todo PASS.

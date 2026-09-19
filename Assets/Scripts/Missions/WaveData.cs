@@ -8,6 +8,7 @@ namespace Popayork.Missions
     {
         public Faction faction;
         public int count;
+        public string variant;
     }
 
     [CreateAssetMenu(fileName = "WaveData", menuName = "Popayork/WaveData")]

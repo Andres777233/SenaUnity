@@ -72,7 +72,7 @@ namespace Popayork.Missions
                     {
                         return spawned;
                     }
-                    if (SpawnOne(wave.entries[e].faction) != null)
+                    if (SpawnOne(wave.entries[e].faction, wave.entries[e].variant) != null)
                     {
                         spawned++;
                     }
@@ -119,13 +119,13 @@ namespace Popayork.Missions
             {
                 return;
             }
-            if (SpawnOne(activeWave.entries[entryIndex].faction) != null)
+            if (SpawnOne(activeWave.entries[entryIndex].faction, activeWave.entries[entryIndex].variant) != null)
             {
                 entryRemaining--;
             }
         }
 
-        private AgentBrain SpawnOne(Faction faction)
+        private AgentBrain SpawnOne(Faction faction, string variant)
         {
             if (pool == null || spawnPoints == null || spawnPoints.Length == 0 || objective == null)
             {
@@ -133,7 +133,7 @@ namespace Popayork.Missions
             }
             Transform spot = spawnPoints[spawnCursor % spawnPoints.Length];
             spawnCursor++;
-            return pool.Spawn(faction, spot.position, objective.position);
+            return pool.SpawnFiltered(faction, variant, spot.position, objective.position);
         }
     }
 }

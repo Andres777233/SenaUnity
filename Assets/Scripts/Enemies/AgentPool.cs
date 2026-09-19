@@ -63,13 +63,19 @@ namespace Popayork.Enemies
             return activeList[index];
         }
 
-        // Activa un slot libre de la facción pedida. Sin asignaciones.
+        // Activa un slot libre de la facción pedida (y variante si se indica). Sin asignaciones.
         public AgentBrain Spawn(Faction faction, Vector3 position, Vector3 objective)
+        {
+            return SpawnFiltered(faction, string.Empty, position, objective);
+        }
+
+        public AgentBrain SpawnFiltered(Faction faction, string variant, Vector3 position, Vector3 objective)
         {
             for (int i = 0; i < slotCount; i++)
             {
                 AgentBrain brain = slots[i];
-                if (brain != null && !brain.IsActive && brain.Faction == faction)
+                if (brain != null && !brain.IsActive && brain.Faction == faction
+                    && (string.IsNullOrEmpty(variant) || brain.VariantName == variant))
                 {
                     brain.Activate(position, objective);
                     activeList[activeCount] = brain;

@@ -42,3 +42,12 @@ MonoBehaviour:
     fightWave: {fileID: 0}
   corridorHalfWidth: 12
   morroTop: {x: 520, y: 77.957085, z: 354.80005}
+  defenseWaves:
+  - {fileID: 11400000, guid: c625ba2bce60b9057a1745987c46274e, type: 2}
+  - {fileID: 11400000, guid: 76f05dc0625775631867f37a57b4543a, type: 2}
+  - {fileID: 11400000, guid: 4d5ca5711a16052d9bfe160a98dcbc9b, type: 2}
+  retreatThreshold: 8
+  exitPoint: {x: 542.62744, y: 77.957085, z: 377.42746}
+  exitRadius: 5
+  maxDeaths: 3
+  defenseGrace: 5

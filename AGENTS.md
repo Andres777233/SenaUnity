@@ -79,6 +79,7 @@ Al terminar cada fase: (a) qué hiciste, (b) cómo lo pruebo, (c) qué falta o e
 - 2026-09-19 (Fase 4B): proyectiles del jugador dañan policías (`AgentHealth` + cápsula trigger en agentes; aliados excluidos de fuego amigo). Victoria de Mision1 guarda directo con `SaveSystem` (funciona en edit-mode) y refresca `GameManager` en play.
 - 2026-09-19 (Fase 5A): decisión narrativa misión 2 completada en §1 (universitarios rivales por acusación de "vender el paro"); nuevo `AgentData.hostile` (policías y Uni rivales = true) en vez de filtrar por facción.
 - 2026-09-19 (Fase 5A): `Horse.blend` inservible (exportador FBX de Blender 5.0 roto + script Unity incompatible); malla real extraída con Blender a `HorseMesh.json` (952 verts, 3 materiales) y reconstruida por código en el builder.
+- 2026-09-19 (Fase 5B): SMART como `AgentData` (facción Police, anillo casi negro, `Police idle2`); `WaveEntry.variant` selecciona modelo en oleadas; defensa con 2º WaveManager y victoria por eliminación o retirada a cartones.
 
 # Anexos operativos verificados
 - Proyecto existe en /home/andres/Escritorio/SENAUNITY. Verificado con `ls`: existe `ProjectSettings/` (contenía solo `ProjectVersion.txt` el 2026-09-19) y `Assets/` con `MapaPopayan/` + `Models3D/`.

@@ -43,9 +43,10 @@ Fuente de verdad: `AGENTS.md` (secciones 1-7 íntegras). Referencia de assets re
 - [x] Uni rivales (hostile) + brújula al Morro; Mision2 en Build Settings
 - [x] Verify Fase5A + compilación + ESTADO + commit "Fase5A"
 
-## Fase 5B — Misión 2 segunda mitad
-- [ ] Defensa del Morro y retirada
-- [ ] Verify Fase5B + compilación + ESTADO + commit "Fase5B"
+## Fase 5B — Misión 2 segunda mitad [CERRADA 2026-09-19: compila, Verify 5B 4/4 PASS + resto re-PASS, commit "Fase 5B"]
+- [x] Defensa del Morro (3 oleadas 4/5/10 con SMART) y retirada a cartones (umbral 8)
+- [x] Derrota a las 3 caídas + reintento; victoria desbloquea Misión 3
+- [x] Verify Fase5B + compilación + ESTADO + commit "Fase5B"
 
 ## Fase 6 — Misión 3
 - [ ] Descenso en cartón hasta el río

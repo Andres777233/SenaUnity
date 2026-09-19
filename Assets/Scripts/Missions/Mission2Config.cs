@@ -28,5 +28,13 @@ namespace Popayork.Missions
         public CheckpointDef[] checkpoints = new CheckpointDef[0];
         public float corridorHalfWidth = 12f;
         public Vector3 morroTop;
+
+        [Header("Fase 5B: defensa y retirada")]
+        public WaveData[] defenseWaves = new WaveData[0];
+        public int retreatThreshold = 8;
+        public Vector3 exitPoint;
+        public float exitRadius = 5f;
+        public int maxDeaths = 3;
+        public float defenseGrace = 5f;
     }
 }
